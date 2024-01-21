@@ -3,8 +3,9 @@ import { StyleSheet, View, Text } from "react-native";
 import { Image } from "expo-image";
 import NextDay from "./NextDay";
 import { Border, Color } from "../GlobalStyles";
+import { weatherType } from "./WeatherCard";
 
-const ForecastForm = () => {
+const ForecastForm = (props: { weatherData: weatherType | null }) => {
   return (
     <View style={styles.forecastContainer}>
       <View style={styles.forcastContainer} />
@@ -49,15 +50,15 @@ const styles = StyleSheet.create({
     left: "0%",
     borderRadius: Border.br_3xs,
     backgroundColor: Color.colorGray_100,
-    position: "absolute",
+    position: "absolute"
   },
   forecastContainer: {
     top: 360,
     left: 30,
     width: 328,
     height: 344,
-    position: "absolute",
-  },
+    position: "absolute"
+  }
 });
 
 export default ForecastForm;

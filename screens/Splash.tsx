@@ -8,10 +8,7 @@ const Splash = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
   return (
-    <Pressable
-      style={styles.splash}
-      onPress={() => navigation.navigate("Search")}
-    >
+    <Pressable style={styles.splash} onPress={() => navigation.navigate("Main")}>
       <Text style={styles.weatherApp} numberOfLines={1}>
         Weather app
       </Text>
@@ -25,7 +22,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     fontFamily: FontFamily.kaiseiTokuminBold,
     color: Color.colorWhite,
-    textAlign: "left",
+    textAlign: "left"
   },
   splash: {
     backgroundColor: Color.colorMidnightblue,
@@ -33,8 +30,8 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 844,
     alignItems: "center",
-    justifyContent: "center",
-  },
+    justifyContent: "center"
+  }
 });
 
 export default Splash;

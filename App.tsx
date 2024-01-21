@@ -3,12 +3,8 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import Splash from "./screens/Splash";
-import NextDay from "./components/NextDay";
-import Search from "./screens/Search";
 import Main from "./screens/Main";
-
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { View, Text, Pressable, TouchableOpacity } from "react-native";
 
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(false);
@@ -18,7 +14,7 @@ const App = () => {
     "KaiseiTokumin-Bold": require("./assets/fonts/KaiseiTokumin-Bold.ttf"),
     "KaiseiTokumin-ExtraBold": require("./assets/fonts/KaiseiTokumin-ExtraBold.ttf"),
     "NotoSans-Regular": require("./assets/fonts/NotoSans-Regular.ttf"),
-    "NotoSans-Bold": require("./assets/fonts/NotoSans-Bold.ttf"),
+    "NotoSans-Bold": require("./assets/fonts/NotoSans-Bold.ttf")
   });
 
   React.useEffect(() => {
@@ -35,25 +31,10 @@ const App = () => {
     <>
       <NavigationContainer>
         {hideSplashScreen ? (
-          <Stack.Navigator
-            initialRouteName="Search"
-            screenOptions={{ headerShown: false }}
-          >
-            <Stack.Screen
-              name="Splash"
-              component={Splash}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Search"
-              component={Search}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Main"
-              component={Main}
-              options={{ headerShown: false }}
-            />
+          <Stack.Navigator initialRouteName="Main" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Splash" component={Splash} options={{ headerShown: false }} />
+
+            <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} />
           </Stack.Navigator>
         ) : (
           <Splash />

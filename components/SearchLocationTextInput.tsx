@@ -14,7 +14,7 @@ type SearchLocationTextInputType = {
   propFontSize?: number | string;
 
   /** Action props */
-  onSearchboxPress?: () => void;
+  onSearchboxPress?: (val: any) => any;
 };
 
 const getStyleValue = (key: string, value: string | number | undefined) => {
@@ -29,7 +29,7 @@ const SearchLocationTextInput = ({
   propFontWeight,
   propFontFamily,
   propFontSize,
-  onSearchboxPress,
+  onSearchboxPress
 }: SearchLocationTextInputType) => {
   const searchboxStyle = useMemo(() => {
     return {
@@ -37,7 +37,7 @@ const SearchLocationTextInput = ({
       ...getStyleValue("left", propLeft),
       ...getStyleValue("fontWeight", propFontWeight),
       ...getStyleValue("fontFamily", propFontFamily),
-      ...getStyleValue("fontSize", propFontSize),
+      ...getStyleValue("fontSize", propFontSize)
     };
   }, [propTop, propLeft, propFontWeight, propFontFamily, propFontSize]);
 
@@ -46,7 +46,7 @@ const SearchLocationTextInput = ({
       style={[styles.searchbox, searchboxStyle]}
       placeholder={searchLocationText}
       placeholderTextColor={backgroundColor}
-      onPressIn={onSearchboxPress}
+      onSubmitEditing={onSearchboxPress}
     />
   );
 };
@@ -63,8 +63,7 @@ const styles = StyleSheet.create({
     fontSize: FontSize.size_xs,
     backgroundColor: "#0B103B",
     color: "white"
-    
-  },
+  }
 });
 
 export default SearchLocationTextInput;
